@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="/fragments/head :: head">
+
+<body>
+    <!-- Navigation Section Start -->
+    <header th:replace="/fragments/header :: header">
+    <!-- Navigation Section End -->
+    <section>
+        <div class="container">
+            <div class="posts" th:each="post : ${posts}">
+                <hr/>
+                <h3 th:text="${post.title}">Title</h3>
+                <p th:text="${post.body}">Body</p>
+                <hr/>
+            </div>
+        </div>
+    </section>
+
+    <!-- Food Search Section Start -->
+    <section class="food-search text-center" >
+        <div class="container">
+            <form action="food-search.html">
+                <input type="search" placeholder="Search for food..." required>
+                <input type="submit" value="Search" class="btn-primary">
+            </form>
+        </div>
+    </section>
+    <!-- Food Search Section End -->
+
+    <!-- Category Section Start -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="text-center">Explore Foods</h2>
+            <div class="heading-border"></div>
+
+            <div class="grid-3">
+                <a href="category-foods.html">
+                    <div class="float-container">
+                        <img src="img/category/pizza.jpg" class="img-responsive" alt="">
+                        <h3 class="float-text text-white">Pizza</h3>
+                    </div>
+                </a>
+                <a href="category-foods.html">
+                    <div class="float-container">
+                        <img src="img/category/sandwich.jpg" class="img-responsive" alt="">
+                        <h3 class="float-text text-white">Sandwich</h3>
+                    </div>
+                </a>
+                <a href="category-foods.html">
+                    <div class="float-container">
+                        <img src="img/category/burger.jpg" class="img-responsive" alt="">
+                        <h3 class="float-text text-white">Burger</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Category Section End -->
+
+    <!-- Foods Section Start -->
+    <section class="food-menu">
+        <div class="container">
+            <h2 class="text-center">Food Menu</h2>
+            <div class="heading-border"></div>
+            <div class="grid-2">
+                <div class="food-menu-box">
+                    <form action="">
+                        <div class="food-menu-img">
+                            <img src="img/food/p1.jpg" alt="" class="img-responsive img-curve">
+                        </div>
+                        <div class="food-menu-desc">
+                            <h4>Pizza</h4>
+                            <p class="food-price">$8.00</p>
+                            <p class="food-details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus excepturi porro.</p>
+                            <input type="number" value="1" min="1">
+                            <input type="submit" class="btn-primary" value="Add To Cart">
+                        </div>
+                    </form>
+                </div>
+                <div class="food-menu-box">
+                    <form action="">
+                        <div class="food-menu-img">
+                            <img src="img/food/s1.jpg" alt="" class="img-responsive img-curve">
+                        </div>
+                        <div class="food-menu-desc">
+                            <h4>Sandwich</h4>
+                            <p class="food-price">$8.00</p>
+                            <p class="food-details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus excepturi porro.</p>
+                            <input type="number" value="1" min="1">
+                            <input type="submit" class="btn-primary" value="Add To Cart">
+                        </div>
+                    </form>
+                </div>
+                <div class="food-menu-box">
+                    <form action="">
+                        <div class="food-menu-img">
+                            <img src="img/food/b1.jpg" alt="" class="img-responsive img-curve">
+                        </div>
+                        <div class="food-menu-desc">
+                            <h4>Burger</h4>
+                            <p class="food-price">$8.00</p>
+                            <p class="food-details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus excepturi porro.</p>
+                            <input type="number" value="1" min="1">
+                            <input type="submit" class="btn-primary" value="Add To Cart">
+                        </div>
+                    </form>
+                </div>
+                <div class="food-menu-box">
+                    <form action="">
+                        <div class="food-menu-img">
+                            <img src="img/food/p1.jpg" alt="" class="img-responsive img-curve">
+                        </div>
+                        <div class="food-menu-desc">
+                            <h4>Pizza</h4>
+                            <p class="food-price">$8.00</p>
+                            <p class="food-details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus excepturi porro.</p>
+                            <input type="number" value="1" min="1">
+                            <input type="submit" class="btn-primary" value="Add To Cart">
+                        </div>
+                    </form>
+                </div>
+                <div class="food-menu-box">
+                    <form action="">
+                        <div class="food-menu-img">
+                            <img src="img/food/s1.jpg" alt="" class="img-responsive img-curve">
+                        </div>
+                        <div class="food-menu-desc">
+                            <h4>Sandwich</h4>
+                            <p class="food-price">$8.00</p>
+                            <p class="food-details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus excepturi porro.</p>
+                            <input type="number" value="1" min="1">
+                            <input type="submit" class="btn-primary" value="Add To Cart">
+                        </div>
+                    </form>
+                </div>
+                <div class="food-menu-box">
+                    <form action="">
+                        <div class="food-menu-img">
+                            <img src="img/food/b1.jpg" alt="" class="img-responsive img-curve">
+                        </div>
+                        <div class="food-menu-desc">
+                            <h4>Burger</h4>
+                            <p class="food-price">$8.00</p>
+                            <p class="food-details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus excepturi porro.</p>
+                            <input type="number" value="1" min="1">
+                            <input type="submit" class="btn-primary" value="Add To Cart">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <p class="text-center">
+            <a href="foods.html" class="btn-primary">See All Foods</a>
+        </p>
+    </section>
+    <!-- Foods Section End -->
+
+    <!-- Footer Section Start -->
+        <footer th:replace="/fragments/footer :: footer">
+    <!-- Footer Section End -->
+
+    <!-- Copyright Section start -->
+    <section class="copyright">
+        <div class="container text-center">
+            <p>All rights reserved. Design By <a href="#">Code Arcade</a></p>
+        </div>
+        <a id="back-to-top" class="btn-primary">
+            <i class="fa fa-angle-double-up"></i>
+        </a>
+    </section>
+    <!-- Copyright Section End -->
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <!-- Jquery UI -->
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+    <!-- Custom JS -->
+    <script src="js/custom.js"></script>
+</body>
+</html>
