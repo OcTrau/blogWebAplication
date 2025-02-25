@@ -1,9 +1,13 @@
 package com.example.demo.config;
 
 import com.example.demo.models.Account;
+import com.example.demo.models.Authority;
 import com.example.demo.models.Post;
 import com.example.demo.services.AccountService;
+import com.example.demo.services.AuthorityService;
 import com.example.demo.services.PostService;
+import com.example.demo.util.constants.Privillages;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -18,10 +22,21 @@ public class SeedData implements CommandLineRunner {
     @Autowired
     private AccountService accountService;
 
+    @Autowired
+    private AuthorityService authorityService;
+
 
 
     @Override
     public void run(String... args) throws Exception {
+
+
+        for(Privillages auth: Privillages.values()){
+            Authority authority = new Authority();
+            authority.setId(auth.getId());
+            authority.setName(auth.getPrivillage());
+            authorityService.save(authority);
+        }
 
         Account account01 = new Account();
         Account account02 = new Account();
@@ -29,15 +44,18 @@ public class SeedData implements CommandLineRunner {
 
         account01.setEmail("taoyasua@gmail.com");
         account01.setPassword("02112002a");
-        account01.setFirstname("PhamMinhBao");
+        account01.setFirstname("Pham");
+        account01.setLastname("Bao");
 
         account02.setEmail("hihiok2002@gmail.com");
         account02.setPassword("Ph@mminhb@o02112002");
-        account02.setFirstname("PhamHongHai");
+        account02.setFirstname("Pham");
+        account02.setLastname("Hai");
 
         account03.setEmail("test1@gmail.com");
         account03.setPassword("02112002a");
         account03.setFirstname("jony");
+        account03.setLastname("Dang");
 
         accountService.save(account01);
         accountService.save(account02);

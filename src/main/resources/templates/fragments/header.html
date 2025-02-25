@@ -15,8 +15,16 @@
             <div class="menu text-right">
                 <ul>
                     <li><a class="hvr-underline-from-center" href="/">Home</a></li>
+                    <span sec:authorize="!isAuthenticated()">
                     <li><a class="hvr-underline-from-center" href="/register">Register</a></li>
-                    <li><a class="hvr-underline-from-center" href="/login.html">Login</a></li>
+                    </span>
+                    <span sec:authorize="!isAuthenticated()">
+                        <li><a class="hvr-underline-from-center" href="/login.html">Login</a></li>
+                        </span>
+                    <span sec:authorize="isAuthenticated()">
+                        <li><a class="hvr-underline-from-center" href="/profile">Profile</a></li>
+                        </span>
+
                     <li><a class="hvr-underline-from-center" href="foods.html">Foods</a></li>
                     <li><a class="hvr-underline-from-center" href="order.html">Order</a></li>
                     <li><a class="hvr-underline-from-center" href="contact.html">Contact</a></li>

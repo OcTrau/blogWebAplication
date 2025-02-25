@@ -1,6 +1,7 @@
 package com.example.demo.services;
 import com.example.demo.models.Account;
 import com.example.demo.repositories.AccountRepository;
+import com.example.demo.util.constants.Roles;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +27,7 @@ public class AccountService implements UserDetailsService{
 
     public Account save(Account account){
         account.setPassword(passwordEncoder.encode(account.getPassword()));
+        account.setRole(Roles.USER.getRole());
 
         return accountRepository.save(account);
     }
@@ -41,7 +43,7 @@ public class AccountService implements UserDetailsService{
         Account account = optionalAccount.get();
 
         List<GrantedAuthority> grantedAuthority = new ArrayList<>();
-        grantedAuthority.add(new SimpleGrantedAuthority("Allow"));
+        grantedAuthority.add(new SimpleGrantedAuthority(account.getRole()));
 
         return new User(account.getEmail(), account.getPassword(), grantedAuthority) ;
     }
