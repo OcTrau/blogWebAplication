@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org/"
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+<header class="navbar">
+    <nav id="site-top-nav" class="navbar-menu navbar-fixed-top">
+        <div class="container">
+            <!-- logo -->
+            <div class="logo">
+                <a href="index.html" title="Logo">
+                    <img src="img/logo.png" alt="Logo" class="img-responsive">
+                </a>
+            </div>
+            <!-- Main Menu -->
+            <div class="menu text-right">
+                <ul>
+                    <li><a class="hvr-underline-from-center" href="/">Home</a></li>
+                    <span sec:authorize="!isAuthenticated()">
+                    <li><a class="hvr-underline-from-center" href="/register">Register</a></li>
+                    </span>
+                    <span sec:authorize="!isAuthenticated()">
+                        <li><a class="hvr-underline-from-center" href="/login.html">Login</a></li>
+                        </span>
+                    <span sec:authorize="isAuthenticated()">
+                        <li><a class="hvr-underline-from-center" href="/profile">Profile</a></li>
+                        </span>
+                    <span sec:authorize="isAuthenticated()">
+                        <li><a class="hvr-underline-from-center" href="/logout">Logout</a></li>
+                        </span>
+                    <span sec:authorize="hasRole('ROLE_ADMIN')">
+                        <li><a class="hvr-underline-from-center" href="/admin">Admin</a></li>
+                        </span>
+                    <span sec:authorize="hasAuthority('ACCESS_ADMIN_PANEL')">
+                        <li><a class="hvr-underline-from-center" href="/admin">Admin</a></li>
+                        </span>
+                    <span sec:authorize="hasAnyRole('ROLE_EDITOR')">
+                        <li><a class="hvr-underline-from-center" href="/Editor">Editor</a></li>
+                        </span>
+
+                    <li><a class="hvr-underline-from-center" href="foods.html">Foods</a></li>
+                    <li><a class="hvr-underline-from-center" href="order.html">Order</a></li>
+                    <li><a class="hvr-underline-from-center" href="contact.html">Contact</a></li>
+
+                    <li>
+                        <a id="shopping-cart" class="shopping-cart">
+                            <i class="fa fa-cart-arrow-down"></i>
+                            <span class="badge">4</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+</html>
