@@ -1,4 +1,4 @@
-package com.example.demo.Controller;
+package com.example.demo.controller;
 
 import com.example.demo.models.Post;
 import com.example.demo.services.PostService;
@@ -19,11 +19,7 @@ public class HomeController {
     public String home(Model model){
         List<Post> posts = postService.getAll();
         model.addAttribute("posts",posts);
-        return "index";
+        return "home_views/index";
     }
 
-    @GetMapping("/editor")
-    public String editor(Model model){
-        return "editor";
-    }
 }

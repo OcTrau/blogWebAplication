@@ -28,7 +28,8 @@ public class WebSecurityConfig {
             "/css/**",
             "/img/**",
             "/js/**",
-            "/admin/**",
+            "/posts/**",
+            
     };
 
 
@@ -43,11 +44,14 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(WHITELIST)
+                        
                         .permitAll()
+                    
                         .requestMatchers("/profile/**").authenticated()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("/editor/**").hasAnyRole("ADMIN","EDITOR")
                         .requestMatchers("/admin/**").hasAuthority(Privillages.ACCESS_ADMIN_PANEL.getPrivillage())
+                        
                 )
                 .formLogin((form) -> form
                 .loginPage("/login")

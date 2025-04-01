@@ -8,7 +8,7 @@
             <!-- logo -->
             <div class="logo">
                 <a href="index.html" title="Logo">
-                    <img src="img/logo.png" alt="Logo" class="img-responsive">
+                    <img th:src="@{/img/logo.png}" alt="Logo" class="img-responsive">
                 </a>
             </div>
             <!-- Main Menu -->
@@ -30,11 +30,11 @@
                     <span sec:authorize="hasRole('ROLE_ADMIN')">
                         <li><a class="hvr-underline-from-center" href="/admin">Admin</a></li>
                         </span>
-                    <span sec:authorize="hasAuthority('ACCESS_ADMIN_PANEL')">
+                    <!-- <span sec:authorize="hasAuthority('ACCESS_ADMIN_PANEL')">
                         <li><a class="hvr-underline-from-center" href="/admin">Admin</a></li>
-                        </span>
-                    <span sec:authorize="hasAnyRole('ROLE_EDITOR')">
-                        <li><a class="hvr-underline-from-center" href="/Editor">Editor</a></li>
+                        </span> -->
+                    <span sec:authorize="hasAnyRole('ROLE_EDITOR', 'ROLE_ADMIN')">
+                        <li><a class="hvr-underline-from-center" href="/editor">Editor</a></li>
                         </span>
 
                     <li><a class="hvr-underline-from-center" href="foods.html">Foods</a></li>
